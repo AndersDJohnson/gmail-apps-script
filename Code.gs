@@ -7,7 +7,7 @@ function cleanUp() {
   var olderThanDays = 1;
   var oldestDate = new Date();
   oldestDate.setTime(oldestDate.getTime() - 1000*60*60*24);
-  var query = "from:calendar-notification@google.com in:inbox -is:starred is:read older_than:" + olderThanDays + "d";
+  var query = "from:(calendar-notification@google.com OR daily-digest@todoist.com) in:inbox -is:starred is:read older_than:" + olderThanDays + "d";
   var threads = GmailApp.search(query);
   for (var i = 0; i < threads.length; i++) {
     var thread = threads[i];
